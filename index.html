@@ -1,0 +1,129 @@
+<head>
+    <link href="./semantic.min.css" rel="stylesheet" type="text/css" />
+    <script src="./jquery-3.1.1.min.js"></script>
+    <script src="./semantic.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $(".ui.dropdown").dropdown("set selected", "0");
+      });
+      $(".ui .item").on("click", function() {
+        $(".ui .item").removeClass("active");
+        $(this).addClass("active");
+      });
+    </script>
+  </head>
+  
+  <div class="ui container">
+    <div class="ui inverted segment" style="padding: 5px 18px">
+      <span class="ui huge red inverted header">UDAO: </span>
+      <span class="ui medium header">a Unified Data Analytics Optimizer</span>
+    </div>
+  
+    <div class="ui massive top attached tabular menu">
+      <a class="item" data-tab="workload" style="padding: 5px 15px">Workload</a>
+      <a class="item" data-tab="execution-plan" style="padding: 10px 15px"
+        >Execution Plan</a
+      >
+      <a class="item" data-tab="performance-models" style="padding: 10px 15px"
+        >Performance Models</a
+      >
+      <a
+        class="item"
+        data-tab="multi-objective-optimization"
+        style="padding: 10px 15px"
+        >Multi-Objective Optimization</a
+      >
+      <a
+        class="active item"
+        data-tab="end-to-end-benefits"
+        style="padding: 10px 15px"
+        >Net Benefits</a
+      >
+    </div>
+  
+    <div class="ui padded grid">
+      <div class="equal width row">
+        <div class="column">
+          <div class="ui segment" style="padding:0px">
+            <img
+              class="ui big centered image"
+              src="images/int-1to1.svg"
+              style="padding-bottom:10px"
+            />
+            <!-- </div> -->
+            <!-- <div class="ui info message" style="margin:5px;padding: 7px">
+            The performance of a <strong>manual</strong> configuration compared to the performance of the configuration
+            recommended by the <strong>UDAO</strong> optimizer.
+          </div> -->
+          </div>
+        </div>
+  
+        <div
+          class="five wide computer four wide large screen four wide widescreen column"
+        >
+          <div class="ui segment" style="padding:10px">
+            <h1 class="ui red header" style="margin-top:0px;margin-bottom:5px">
+              Objective
+            </h1>
+            <div class="ui form">
+              <div class="grouped fields">
+                <div class="field">
+                  <div class="ui checked checkbox">
+                    <input type="checkbox" checked="" />
+                    <label>Latency</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" checked="" />
+                    <label>Throughput</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" />
+                    <label>Cost</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" />
+                    <label>CPU Utilization</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- </div>
+  
+          <div class="ui segment"> -->
+            <h1 class="ui red header" style="margin-top:15px;margin-bottom:5px">
+              Algorithm
+            </h1>
+            <div class="ui form">
+              <div class="grouped fields">
+                <div class="field">
+                  <div class="ui checked checkbox">
+                    <input type="checkbox" checked="" />
+                    <label>UDAO</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" checked="" />
+                    <label>Manual</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui checkbox">
+                    <input type="checkbox" />
+                    <label>Ottertune</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
