@@ -9,7 +9,9 @@ var menu_tab = {
 };
 
 $(document).ready(function () {
+    // initial set
     $('a[data-tab=' + menu_tab[default_menu_id] + ']').addClass('active');
+    $('div[data-tab=' + menu_tab[default_menu_id] + ']').addClass('active');
     menu_id = default_menu_id;
 
     // control the menu tabs
@@ -18,4 +20,8 @@ $(document).ready(function () {
         $('.ui .item').removeClass('active');
         $(this).addClass('active');
     });
+
+    $('.menu .item')
+        .tab();
+
 });

@@ -19,16 +19,10 @@
     </div>
 
     <div class="ui massive top attached tabular menu">
-      <a
-        href="#workload"
-        class="item"
-        menu_id="0"
-        data-tab="workload"
-        style="padding: 10px 15px"
+      <a class="item" menu_id="0" data-tab="workload" style="padding: 10px 15px"
         >Workload</a
       >
       <a
-        href="#execution-plan"
         class="item"
         menu_id="1"
         data-tab="execution-plan"
@@ -36,7 +30,6 @@
         >Execution Plan</a
       >
       <a
-        href="#performance-models"
         class="item"
         menu_id="2"
         data-tab="performance-models"
@@ -44,7 +37,6 @@
         >Performance Models</a
       >
       <a
-        href="#multi-objective-optimization"
         class="item"
         menu_id="3"
         data-tab="multi-objective-optimization"
@@ -52,7 +44,6 @@
         >Multi-Objective Optimization</a
       >
       <a
-        href="#net-benefits"
         class="item"
         menu_id="4"
         data-tab="net-benefits"
@@ -61,77 +52,274 @@
       >
     </div>
 
+    <div class="ui bottom attached tab segment" data-tab="workload">
+      First
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="execution-plan">
+      Second
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="performance-models">
+            <div class="ui padded grid">
+                    <div class="equal width row">
+                
+                      <div class="column">
+                        <div class="ui segment" style="padding:0px">
+                          <div class="ui red massive horizontal label" style="margin:5px">Job 26</div>
+                          <img class="ui big centered image" src="images/stream26_batchInterval_inputRate.png" style="margin:0px">
+                        </div>
+                      </div>
+                
+                      <div class="five wide computer four wide large screen four wide widescreen column">
+                        <div class="ui segment" style="padding:10px">
+                          <h1 class="ui red header" style="margin-top:0px;margin-bottom:10px">Objective</h1>
+                
+                          <div class="ui selection fluid dropdown" id="obj">
+                            <input type="hidden" name="Objective">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Objective</div>
+                            <div class="menu">
+                              <div class="item" data-value="0">Latency</div>
+                              <div class="item" data-value="1">Throughput</div>
+                              <div class="item" data-value="2">Cost</div>
+                              <div class="item" data-value="3">CPU Utilization</div>
+                            </div>
+                
+                          </div>
+                          <!-- </div>
+                        <div class="ui segment"> -->
+                          <h1 class="ui red header" style="margin-top:5px;margin-bottom:5px">Parameters</h1>
+                          <div class="ui form">
+                            <div class="grouped fields">
+                              <div class="field">
+                                <div class="ui checkbox">
+                                  <input type="checkbox" checked="">
+                                  <label>Batch interval</label>
+                                </div>
+                              </div>
+                              <div class="field">
+                                <div class="ui checked checkbox">
+                                  <input type="checkbox">
+                                  <label>Block interval</label>
+                                </div>
+                              </div>
+                              <div class="field">
+                                <div class="ui checkbox">
+                                  <input type="checkbox">
+                                  <label>Parallelism</label>
+                                </div>
+                              </div>
+                              <div class="field">
+                                <div class="ui checkbox">
+                                  <input type="checkbox" checked="">
+                                  <label>Input rate</label>
+                                </div>
+                              </div>
+                              <div class="field">
+                                <div class="ui checkbox">
+                                  <input type="checkbox">
+                                  <label>Number of executors</label>
+                                </div>
+                              </div>
+                              <div class="field">
+                                <div class="ui checkbox">
+                                  <input type="checkbox">
+                                  <label>Number of cores per executor</label>
+                                </div>
+                              </div>
+                              <div class="field">
+                                <div class="ui checkbox">
+                                  <input type="checkbox">
+                                  <label>Memory per executor</label>
+                                </div>
+                              </div>
+                              <div class="field">
+                                <div class="ui checked checkbox">
+                                  <input type="checkbox">
+                                  <label>Maximum size in flight</label>
+                                </div>
+                              </div>
+                              <!-- <div class="field">
+                                <div class="ui checkbox">
+                                  <input type="checkbox">
+                                  <label>Bypass merge threshold</label>
+                                </div>
+                              </div>
+                              <div class="field">
+                                <div class="ui checkbox">
+                                  <input type="checkbox">
+                                  <label>Shuffle compress</label>
+                                </div>
+                              </div> -->
+                            </div>
+                          </div>
+                          <!-- </div>
+                        <div class="ui segment"> -->
+                          <h1 class="ui red header" style="margin-top:5px;margin-bottom:5px">Algorithm</h1>
+                          <div class="ui disabled fluid selection dropdown" id="obj">
+                            <input type="hidden" name="Objective">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Algorithm</div>
+                            <div class="menu">
+                              <div class="item" data-value="0" unactive>UDAO</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                
+                    </div>
+                
+                  </div>
+    </div>
+    <div
+      class="ui bottom attached tab segment"
+      data-tab="multi-objective-optimization"
+    >
     <div class="ui padded grid">
-      <div class="equal width row">
-        <div class="column">
-          <div class="ui segment" style="padding:0px">
-            <img
-              class="ui big centered image"
-              src="images/int-1to1.svg"
-              style="padding-bottom:10px"
-            />
+            <div class="equal width row">
+        
+              <div class="column">
+                <div class="ui segment" style="padding:0px">
+                  <div class="ui red big horizontal label" style="margin:5px">Job 56</div>
+                  <img class="ui big centered image" src="images/skyline-ws-3d-new.svg" style="margin:0px">
+                <!-- </div> -->
+                <div class="ui info message" style="margin:5px;padding: 7px; top:-20px;">
+                  Pareto frontier for three objectives: <strong>throughput</strong>, <strong>latency</strong> and <strong>computing
+                    cost</strong> by using <strong>Weighted Sum (WS)</strong> algorithm.
+                </div>
+                </div>
+              </div>
+        
+        
+        
+              <div class="five wide computer four wide large screen four wide widescreen column">
+        
+                <div class="ui segment" style="padding:10px">
+                  <h2 class="ui red header" style="margin-top:0px;margin-bottom:10px">Objective</h2>
+                  <div class="ui form">
+                    <div class="grouped fields">
+                      <div class="field">
+                        <div class="ui checked checkbox">
+                          <input type="checkbox" checked="">
+                          <label>Latency</label>
+                        </div>
+                      </div>
+                      <div class="field">
+                        <div class="ui checkbox">
+                          <input type="checkbox" checked="">
+                          <label>Throughput</label>
+                        </div>
+                      </div>
+                      <div class="field">
+                        <div class="ui checkbox">
+                          <input type="checkbox" checked="">
+                          <label>Cost</label>
+                        </div>
+                      </div>
+                      <div class="field">
+                        <div class="ui checkbox">
+                          <input type="checkbox">
+                          <label>CPU Utilization</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h2 class="ui red header" style="margin-top:15px;margin-bottom:10px">Pareto Frontier Algorithm</h2>
+        
+                  <div class="ui selection fluid dropdown" id="obj">
+                    <input type="hidden" name="Objective">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Algorithm</div>
+                    <div class="menu">
+                      <div class="item" data-value="0">Progressive Frontier (PF)</div>
+                      <div class="item" data-value="1">Weighted Sum (WS)</div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+              </div>
+        
+            </div>
+        
           </div>
-        </div>
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="net-benefits">
+      <div class="ui padded grid">
+        <div class="equal width row">
+          <div class="column">
+            <div class="ui segment" style="padding:0px">
+              <img
+                class="ui big centered image"
+                src="images/int-1to1.svg"
+                style="padding-bottom:10px"
+              />
+            </div>
+          </div>
 
-        <div
-          class="five wide computer four wide large screen four wide widescreen column"
-        >
-          <div class="ui segment" style="padding:10px">
-            <h1 class="ui red header" style="margin-top:0px;margin-bottom:5px">
-              Objective
-            </h1>
-            <div class="ui form">
-              <div class="grouped fields">
-                <div class="field">
-                  <div class="ui checked checkbox">
-                    <input type="checkbox" checked="" />
-                    <label>Latency</label>
+          <div
+            class="five wide computer four wide large screen four wide widescreen column"
+          >
+            <div class="ui segment" style="padding:10px">
+              <h1
+                class="ui red header"
+                style="margin-top:0px;margin-bottom:5px"
+              >
+                Objective
+              </h1>
+              <div class="ui form">
+                <div class="grouped fields">
+                  <div class="field">
+                    <div class="ui checked checkbox">
+                      <input type="checkbox" checked="" />
+                      <label>Latency</label>
+                    </div>
                   </div>
-                </div>
-                <div class="field">
-                  <div class="ui checkbox">
-                    <input type="checkbox" checked="" />
-                    <label>Throughput</label>
+                  <div class="field">
+                    <div class="ui checkbox">
+                      <input type="checkbox" checked="" />
+                      <label>Throughput</label>
+                    </div>
                   </div>
-                </div>
-                <div class="field">
-                  <div class="ui checkbox">
-                    <input type="checkbox" />
-                    <label>Cost</label>
+                  <div class="field">
+                    <div class="ui checkbox">
+                      <input type="checkbox" />
+                      <label>Cost</label>
+                    </div>
                   </div>
-                </div>
-                <div class="field">
-                  <div class="ui checkbox">
-                    <input type="checkbox" />
-                    <label>CPU Utilization</label>
+                  <div class="field">
+                    <div class="ui checkbox">
+                      <input type="checkbox" />
+                      <label>CPU Utilization</label>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- </div>
-  
-          <div class="ui segment"> -->
-            <h1 class="ui red header" style="margin-top:15px;margin-bottom:5px">
-              Algorithm
-            </h1>
-            <div class="ui form">
-              <div class="grouped fields">
-                <div class="field">
-                  <div class="ui checked checkbox">
-                    <input type="checkbox" checked="" />
-                    <label>UDAO</label>
+
+              <h1
+                class="ui red header"
+                style="margin-top:15px;margin-bottom:5px"
+              >
+                Algorithm
+              </h1>
+              <div class="ui form">
+                <div class="grouped fields">
+                  <div class="field">
+                    <div class="ui checked checkbox">
+                      <input type="checkbox" checked="" />
+                      <label>UDAO</label>
+                    </div>
                   </div>
-                </div>
-                <div class="field">
-                  <div class="ui checkbox">
-                    <input type="checkbox" checked="" />
-                    <label>Manual</label>
+                  <div class="field">
+                    <div class="ui checkbox">
+                      <input type="checkbox" checked="" />
+                      <label>Manual</label>
+                    </div>
                   </div>
-                </div>
-                <div class="field">
-                  <div class="ui checkbox">
-                    <input type="checkbox" />
-                    <label>Ottertune</label>
+                  <div class="field">
+                    <div class="ui checkbox">
+                      <input type="checkbox" />
+                      <label>Ottertune</label>
+                    </div>
                   </div>
                 </div>
               </div>
