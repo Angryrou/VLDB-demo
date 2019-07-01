@@ -18,12 +18,13 @@ var wl_id_dict = {
     }
 };
 
-// var menu_id = default_menu_id;
-// var wl_scenario_id = default_wl_scenario_id;
-// var wl_type_id = default_wl_type_id;
-// var wl_id = default_wl_id;
-// var wl_list = wl_id_dict[wl_scenario[default_wl_scenario_id]][wl_type[default_wl_type_id]]
-// var wl = wl_list[default_wl_id]
+var wl_des_dict = {
+    "batch_offline_1-7": "description for 1-7"
+}
+
+var wl_lgp_dict = {
+    "batch_offline_1-7": "logical plan for 1-7"
+}
 
 function wl_list_gen() {
     for (wl_scenario of ['batch', 'streaming']) {
@@ -48,6 +49,9 @@ $(document).ready(function () {
     // wl_list_gen();
     $('div[data-value="' + default_wl_id + '"').addClass('selected').addClass('active')
     $('*[data-tag="wl-id"]').text(default_wl_id)
+    $('#wl-description').find('pre').text((wl_des_dict[default_wl_id] !== undefined) ? wl_des_dict[default_wl_id] : 'TBD...')
+    $('#wl-logical-plan').find('pre').text((wl_lgp_dict[default_wl_id] !== undefined) ? wl_lgp_dict[default_wl_id] : 'TBD...')
+
    
     $('.menu .item')
         .tab();
@@ -63,6 +67,9 @@ $(document).ready(function () {
             else {
                 wl_id = text;
                 $('*[data-tag="wl-id"]').text(wl_id);
+                $('#wl-description').find('pre').text((wl_des_dict[wl_id] !== undefined) ? wl_des_dict[wl_id] : 'TBD...')
+                $('#wl-logical-plan').find('pre').text((wl_lgp_dict[wl_id] !== undefined) ? wl_lgp_dict[wl_id] : 'TBD...')
+
             }
         }
     })
