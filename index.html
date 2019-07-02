@@ -5,7 +5,7 @@
   <script src="./semantic.min.js"></script>
   <script src="./index.js"></script>
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       $(".ui.dropdown").dropdown("set selected", "0");
     });
   </script>
@@ -21,19 +21,20 @@
       <a class="item" data-tab="workload" style="padding: 10px 15px">Workload</a>
       <a class="item" data-tab="execution-plan" style="padding: 10px 15px">Execution Plan</a>
       <a class="item" data-tab="performance-models" style="padding: 10px 15px">Performance Models</a>
-      <a class="item" data-tab="multi-objective-optimization" style="padding: 10px 15px">Multi-Objective Optimization</a>
+      <a class="item" data-tab="multi-objective-optimization" style="padding: 10px 15px">Multi-Objective
+        Optimization</a>
       <a class="item" data-tab="net-benefits" style="padding: 10px 15px">Net Benefits</a>
     </div>
     <div class="ui bottom attached tab segment" data-tab="workload">
-      <div class="ui padded two column grid">
+      <div class="ui padded grid">
+        <!-- workload dropdown-->
         <div class="row">
-          <!-- workload dropdown-->
           <div class="ui left action icon input">
-            <button class="ui red button">
+            <div class="ui red button">
               Target Workload
-            </button>
+            </div>
             <div class="ui dropdown button " id='target-workload-dropdown'>
-              <span class="text" data-tag="wl-id"></span>
+              <span class="text" data-tag="wl-id"> TO BE INITIATED </span>
               <i class="dropdown icon"></i>
               <div class="right menu">
                 <div class="item" data-value='batch'>
@@ -333,7 +334,7 @@
           </div>
         </div>
         <!-- workload description -->
-        <div class="column">
+        <div class="eight wide column">
           <div class="ui segment" id='wl-description'>
             <div class="ui red basic ribbon label">Workload Description</div>
             <pre>TBD...
@@ -341,7 +342,7 @@
           </div>
         </div>
         <!-- workload logical plan -->
-        <div class="column">
+        <div class="eight wide column">
           <div class="ui segment" id='wl-logical-plan'>
             <div class="ui red basic ribbon label">Workload Logical Plan</div>
             <pre>TBD...
@@ -351,7 +352,33 @@
       </div>
     </div>
     <div class="ui bottom attached tab segment" data-tab="execution-plan">
-      Second
+      <div class="ui padded grid">
+        <!-- show target workload -->
+        <div class="row">
+          <div class="ui left action icon input">
+            <div class="ui red button">
+              Target Workload
+            </div>
+            <div class="ui button" data-tag="wl-id">
+              TO BE INITIATED
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- choose configuration -->
+          <div class="ui five wide column">
+            test
+          </div>
+
+          <!-- show embedded spark execution plan-->
+          <div class="ui eleven wide column">
+              <div class="ui 4:3 embed" id="spark-ui">
+              </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
     <div class="ui bottom attached tab segment" data-tab="performance-models">
       <div class="ui padded grid">

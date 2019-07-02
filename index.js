@@ -1,8 +1,10 @@
-var default_menu_id = 0;
+var default_menu_id = 1;
 var default_wl_id = 'batch_offline_1-7';
 
 var menu_id = default_menu_id;
 var wl_id = default_wl_id;
+
+var a;
 
 var menu_tab = ['workload', 'execution-plan', 'performance-models', 'multi-objective-optimization', 'net-benefits'];
 // var wl_scenario = ["batch", "streaming"]
@@ -26,6 +28,10 @@ var wl_lgp_dict = {
     "batch_offline_1-7": "logical plan for 1-7"
 }
 
+var wl_embedded_url_dict = {
+    "batch_offline_1-7": "http://10.0.0.7:18088/history/application_1556053183124_3882/SQL"
+}
+
 function wl_list_gen() {
     for (wl_scenario of ['batch', 'streaming']) {
         for (wl_type of ['offline', 'online']) {
@@ -39,6 +45,26 @@ function wl_list_gen() {
     }
 }
 
+function target_wl_update(i) {
+    $('*[data-tag="wl-id"]').text(i);
+    $('#wl-description').find('pre').text((wl_des_dict[i] !== undefined) ? wl_des_dict[i] : 'TBD...');
+    $('#wl-logical-plan').find('pre').text((wl_lgp_dict[i] !== undefined) ? wl_lgp_dict[i] : 'TBD...');
+    update_frame();
+}
+
+function update_frame() {
+    $('#spark-ui').embed({
+        autoplay: true,
+        url: wl_embedded_url_dict[wl_id],
+        onDisplay: function() {
+            $(this).find('iframe').attr('scrolling', 'auto')
+                .attr('webkitallowfullscreen', 'true')
+                .attr('mozallowfullscreen', 'true')
+                .attr('allowfullscreen', 'true');
+        }
+    });
+}
+
 $(document).ready(function () {
     // initial set
     $('#title-section').css('font-size', '20px').css('padding', '5px 18px')
@@ -47,32 +73,29 @@ $(document).ready(function () {
     $('a[data-tab=' + menu_tab[default_menu_id] + ']').addClass('active');
     $('div[data-tab=' + menu_tab[default_menu_id] + ']').addClass('active');
     // wl_list_gen();
-    $('div[data-value="' + default_wl_id + '"').addClass('selected').addClass('active')
-    $('*[data-tag="wl-id"]').text(default_wl_id)
-    $('#wl-description').find('pre').text((wl_des_dict[default_wl_id] !== undefined) ? wl_des_dict[default_wl_id] : 'TBD...')
-    $('#wl-logical-plan').find('pre').text((wl_lgp_dict[default_wl_id] !== undefined) ? wl_lgp_dict[default_wl_id] : 'TBD...')
+    $('div[data-value="' + default_wl_id + '"').addClass('selected').addClass('active');
+    target_wl_update(default_wl_id);
 
-   
     $('.menu .item')
         .tab();
 
+    // workload dropdown 
     $('#target-workload-dropdown').dropdown({
         allowCategorySelection: true,
         onChange: function(value, text, $choice) {
             console.log(value)
             if (value == 'batch' || value == 'streaming' || value == 'offline' || value == 'online') {
                 alert('Please choose a specific target workload');
-                $('div[data-value="' + wl_id + '"]').get(0).click()
+                $('div[data-value="' + wl_id + '"]').get(0).click();
             }
             else {
                 wl_id = text;
-                $('*[data-tag="wl-id"]').text(wl_id);
-                $('#wl-description').find('pre').text((wl_des_dict[wl_id] !== undefined) ? wl_des_dict[wl_id] : 'TBD...')
-                $('#wl-logical-plan').find('pre').text((wl_lgp_dict[wl_id] !== undefined) ? wl_lgp_dict[wl_id] : 'TBD...')
-
+                target_wl_update(wl_id);
             }
         }
-    })
+    });
+    
+    
 
 });
 
