@@ -336,7 +336,8 @@
         <!-- workload description -->
         <div class="eight wide column">
           <div class="ui segment" id='wl-description'>
-            <div class="ui red basic ribbon label">Workload Description</div>
+            <!-- <div class="ui red basic ribbon label">Workload Description</div> -->
+            <div class="ui orange top left attached label">Workload Description</div>
             <pre>TBD...
             </pre>
           </div>
@@ -344,7 +345,8 @@
         <!-- workload logical plan -->
         <div class="eight wide column">
           <div class="ui segment" id='wl-logical-plan'>
-            <div class="ui red basic ribbon label">Workload Logical Plan</div>
+            <!-- <div class="ui red basic ribbon label">Workload Logical Plan</div> -->
+            <div class="ui orange top left attached label">Workload Logical Plan</div>
             <pre>TBD...
             </pre>
           </div>
@@ -367,13 +369,125 @@
         <div class="row">
           <!-- choose configuration -->
           <div class="ui five wide column">
-            test
+
+            <div class="ui segment">
+              <div class="ui orange top left attached label">Configuration Setting</div>
+
+              <div class="ui label"> Recommended Configuration list TBD... </div>
+
+              <div class="ui equal width form">
+                <!-- k1 -->
+                <div class="fields">
+                  <div class="field">
+                    <label>spark.defalut.parallelism</label>
+                    <div class="ui mini input">
+                      <input type="text" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- k2 ~ k4 -->
+                <div class="fields">
+                  <div class="field">
+                    <label>spark.defalut.parallelism</label>
+                    <div class="ui mini input">
+                      <input type="text" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- k5 -->
+                <div class="fields">
+                  <div class="field">
+                    <label>spark.reducer.maxsizeInFlight</label>
+                    <div class="ui mini input">
+                      <input type="text" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- k6 -->
+                <div class="fields">
+                  <div class="field">
+                    <label>spark.shuffle.sort.bypassMergeThreshold</label>
+                    <div class="ui mini input">
+                      <input type="text" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- k7 -->
+                <div class="fields">
+                  <div class="field">
+                    <label>spark.shuffle.compress</label>
+                    <div class="ui mini input">
+                      <input type="text" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- k8 -->
+                <div class="fields">
+                  <div class="field">
+                    <label>spark.memory.fraction</label>
+                    <div class="ui mini input">
+                      <input type="text" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- s1 -->
+                <div class="fields">
+                  <div class="field">
+                    <label>spark.sql.inMemoryColumnarstorage.batchsize</label>
+                    <div class="ui mini input">
+                      <input type="text" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- s2 -->
+                <div class="fields">
+                  <div class="field">
+                    <label>spark.sql.files.maxPartitionBytes</label>
+                    <div class="ui mini input">
+                      <input type="text" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- s3 -->
+                <div class="fields">
+                  <div class="field">
+                    <label>spark.sql.autoBroadcastJoinThreshold</label>
+                    <div class="ui mini input">
+                      <input type="text" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- s4 -->
+                <div class="fields">
+                  <div class="field">
+                    <label>spark.sql.shuffle.partitions</label>
+                    <div class="ui mini input">
+                      <input type="text" placeholder="">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
 
           <!-- show embedded spark execution plan-->
-          <div class="ui eleven wide column">
+          <div class="ui eleven wide right floated column">
+            <div class="ui segment">
+              <div class="ui orange top left attached label">Spark Execution Exploration</div>
+              <!-- <div class="ui 4:3 embed" id="spark-ui"> -->
               <div class="ui 4:3 embed" id="spark-ui">
               </div>
+            </div>
           </div>
         </div>
       </div>
@@ -462,22 +576,8 @@
                       <label>Maximum size in flight</label>
                     </div>
                   </div>
-                  <!-- <div class="field">
-                                <div class="ui checkbox">
-                                  <input type="checkbox">
-                                  <label>Bypass merge threshold</label>
-                                </div>
-                              </div>
-                              <div class="field">
-                                <div class="ui checkbox">
-                                  <input type="checkbox">
-                                  <label>Shuffle compress</label>
-                                </div>
-                              </div> -->
                 </div>
               </div>
-              <!-- </div>
-                        <div class="ui segment"> -->
               <h1 class="ui red header" style="margin-top:5px;margin-bottom:5px">
                 Algorithm
               </h1>
