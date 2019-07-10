@@ -1,4 +1,4 @@
-var default_menu_id = 1;
+var default_menu_id = 0;
 var default_conf_menu_id = 0;
 var default_wl_id = 'batch_offline_1-7';
 var default_reco_conf_id = 0;
