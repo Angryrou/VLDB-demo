@@ -357,142 +357,167 @@
       <div class="ui padded grid">
         <!-- show target workload -->
         <div class="row">
-          <div class="ui left action icon input">
-            <div class="ui red button">
-              Target Workload
+          <div class="ui five wide column">
+            <div class="ui left action icon input">
+              <div class="ui red button">
+                Target Workload
+              </div>
+              <div class="ui button" data-tag="wl-id">
+                TO BE INITIATED
+              </div>
             </div>
-            <div class="ui button" data-tag="wl-id">
-              TO BE INITIATED
+          </div>
+          <div class="ui right floated six wide column bottom tab">
+            <div class="ui selection mini dropdown" style="float:right" id="recommended-conf-dropdown">
+              <input type="hidden" name="recommended">
+              <i class="dropdown icon"></i>
+              <span class="text" data-tag="recommended-conf-id">TO BE INITIATED</span>
+              <div class="menu">
+                <div class="item" data-value="recommended-conf-1">recommended-conf-1</div>
+                <div class="item" data-value="recommended-conf-2">recommended-conf-2</div>
+                <div class="item" data-value="recommended-conf-3">recommended-conf-3</div>
+              </div>
+            </div>
+          </div>
+          <div class="ui right floated five wide column">
+            <div class="ui secondary tiny tabular menu">
+              <a class="right item" data-tab="recommended">Recommended</a>
+              <a class="item" data-tab="default">Default</a>
+              <a class="item" data-tab="customized">Customized</a>
+              </a>
             </div>
           </div>
         </div>
         <div class="row">
-          <!-- choose configuration -->
-          <div class="ui five wide column">
-
-            <div class="ui segment">
-              <div class="ui orange top left attached label">Configuration Setting</div>
-
-              <div class="ui label"> Recommended Configuration list TBD... </div>
-
-              <div class="ui equal width form">
-                <!-- k1 -->
-                <div class="fields">
-                  <div class="field">
-                    <label>spark.defalut.parallelism</label>
-                    <div class="ui mini input">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                </div>
-
-                <!-- k2 ~ k4 -->
-                <div class="fields">
-                  <div class="field">
-                    <label>spark.defalut.parallelism</label>
-                    <div class="ui mini input">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                </div>
-
-                <!-- k5 -->
-                <div class="fields">
-                  <div class="field">
-                    <label>spark.reducer.maxsizeInFlight</label>
-                    <div class="ui mini input">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                </div>
-
-                <!-- k6 -->
-                <div class="fields">
-                  <div class="field">
-                    <label>spark.shuffle.sort.bypassMergeThreshold</label>
-                    <div class="ui mini input">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                </div>
-
-                <!-- k7 -->
-                <div class="fields">
-                  <div class="field">
-                    <label>spark.shuffle.compress</label>
-                    <div class="ui mini input">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                </div>
-
-                <!-- k8 -->
-                <div class="fields">
-                  <div class="field">
-                    <label>spark.memory.fraction</label>
-                    <div class="ui mini input">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                </div>
-
-                <!-- s1 -->
-                <div class="fields">
-                  <div class="field">
-                    <label>spark.sql.inMemoryColumnarstorage.batchsize</label>
-                    <div class="ui mini input">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                </div>
-
-                <!-- s2 -->
-                <div class="fields">
-                  <div class="field">
-                    <label>spark.sql.files.maxPartitionBytes</label>
-                    <div class="ui mini input">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                </div>
-
-                <!-- s3 -->
-                <div class="fields">
-                  <div class="field">
-                    <label>spark.sql.autoBroadcastJoinThreshold</label>
-                    <div class="ui mini input">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                </div>
-
-                <!-- s4 -->
-                <div class="fields">
-                  <div class="field">
-                    <label>spark.sql.shuffle.partitions</label>
-                    <div class="ui mini input">
-                      <input type="text" placeholder="">
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
+          <div class="ui bottom attached tab" data-tab="default">
+            default
           </div>
+          <div class="ui bottom attached tab" data-tab="customized">
+            customized
+          </div>
+          <div class="ui bottom attached tab" data-tab="recommended">
+            <div class="ui padded grid">
+              <div class="row">
+                <!-- choose configuration -->
+                <div class="ui five wide column">
+                  <div class="ui segment">
+                    <div class="ui orange top left attached label">Configuration Setting</div>
 
-          <!-- show embedded spark execution plan-->
-          <div class="ui eleven wide right floated column">
-            <div class="ui segment">
-              <div class="ui orange top left attached label">Spark Execution Exploration</div>
-              <!-- <div class="ui 4:3 embed" id="spark-ui"> -->
-              <div class="ui 4:3 embed" id="spark-ui">
+                    <table class="ui fixed single line celled table">
+                      <thead>
+                        <tr>
+                          <th class="eleven wide">Knob</th>
+                          <th class="five wide">Value</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>spark.defalut.parallelism</td>
+                          <td>
+                            <div class="ui mini input" style="width:100%">
+                              <input type="text">
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>(#exector, #core/exector,<br> exec_mem)</td>
+                          <td style="overflow: visible">
+                            <div class="ui fluid selection dropdown">
+                              <i class="dropdown icon"></i>
+                              <div class="menu">
+                                <div class="item" style="padding:0px">(2,4,8)</div>
+                                <div class="item" style="padding:0px">(24,3,6)</div>
+                                <div class="item" style="padding:0px">(36,2,4)</div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>spark.reducer.maxsize-<br>InFlight</td>
+                          <td>
+                            <div class="ui mini input" style="width:100%">
+                              <input type="text">
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>spark.shuffle.sort.<br>bypassMergeThreshold</td>
+                          <td>
+                            <div class="ui mini input" style="width:100%">
+                              <input type="text">
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>spark.shuffle.compress</td>
+                          <td style="overflow: visible">
+                            <div class="ui fluid selection dropdown">
+                              <i class="dropdown icon"></i>
+                              <div class="menu">
+                                <div class="item" style="padding:0px">True</div>
+                                <div class="item" style="padding:0px">False</div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>spark.memory.fraction</td>
+                          <td>
+                            <div class="ui mini input" style="width:100%">
+                              <input type="text">
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>spark.sql.inMemory-<br>Columnarstorage.batchsize</td>
+                          <td>
+                            <div class="ui mini input" style="width:100%">
+                              <input type="text">
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>spark.sql.files<br>.maxPartitionBytes</td>
+                          <td>
+                            <div class="ui mini input" style="width:100%">
+                              <input type="text">
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>spark.sql.autoBroadcast-<br>JoinThreshold</td>
+                          <td>
+                            <div class="ui mini input" style="width:100%">
+                              <input type="text">
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>spark.sql.shuffle.partitions</td>
+                          <td>
+                            <div class="ui mini input" style="width:100%">
+                              <input type="text">
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- show embedded spark execution plan-->
+                <div class="ui eleven wide right floated column">
+                  <div class="ui segment">
+                    <div class="ui orange top left attached label">Spark Execution Exploration</div>
+                    <!-- <div class="ui 4:3 embed" id="spark-ui"> -->
+                    <div class="ui 4:3 embed" id="spark-ui">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
     <div class="ui bottom attached tab segment" data-tab="performance-models">
       <div class="ui padded grid">
@@ -521,8 +546,6 @@
                   <div class="item" data-value="3">CPU Utilization</div>
                 </div>
               </div>
-              <!-- </div>
-                        <div class="ui segment"> -->
               <h1 class="ui red header" style="margin-top:5px;margin-bottom:5px">
                 Parameters
               </h1>

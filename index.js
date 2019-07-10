@@ -1,14 +1,15 @@
 var default_menu_id = 1;
+var default_conf_menu_id = 0;
 var default_wl_id = 'batch_offline_1-7';
+var default_reco_conf_id = 0;
 
 var menu_id = default_menu_id;
 var wl_id = default_wl_id;
 
-var a;
-
 var menu_tab = ['workload', 'execution-plan', 'performance-models', 'multi-objective-optimization', 'net-benefits'];
-// var wl_scenario = ["batch", "streaming"]
-// var wl_type = ["offline", "online"]
+var conf_tab = ['recommended', 'default', 'customized'];
+var reco_conf_list = ['recommended-conf-1', 'recommended-conf-2', 'recommended-conf-3'];
+
 var wl_id_dict = {
     "batch": {
         "offline": '1-7,2-2,3-2,4-7,5-1,6-2,7-2,8-5,9-3,10-0,11-2,12-3,13-4,14-0,15-4,16-3,17-5,18-1,19-7,20-4,21-1,22-7,23-4,24-3,25-7,26-8,27-7,28-0,29-1,30-0,1-5,2-0,3-0,4-6,5-6,6-4,7-3,8-6,9-0,12-8,13-6,14-5,15-3,16-4,17-4,18-8,19-4,20-6,21-7,22-2,23-0,24-5,25-1,26-5,27-8,28-3,29-3,30-8'.split(','),
@@ -32,24 +33,10 @@ var wl_embedded_url_dict = {
     "batch_offline_1-7": "http://10.0.0.7:18088/history/application_1556053183124_3882/SQL"
 }
 
-function wl_list_gen() {
-    for (wl_scenario of ['batch', 'streaming']) {
-        for (wl_type of ['offline', 'online']) {
-            $.each(wl_id_dict[wl_scenario][wl_type], function(w_idx, w) {
-                w_id = wl_scenario + '_' + wl_type + '_' + w
-                $('#' + wl_scenario + '-' + wl_type + '-list').append(
-                    $('<div></div>').addClass('item').attr('data-value', w_id).html(w_id)
-                );
-            });
-        }
-    }
-}
-
 function target_wl_update(i) {
     $('*[data-tag="wl-id"]').text(i);
     $('#wl-description').find('pre').text((wl_des_dict[i] !== undefined) ? wl_des_dict[i] : 'TBD...');
     $('#wl-logical-plan').find('pre').text((wl_lgp_dict[i] !== undefined) ? wl_lgp_dict[i] : 'TBD...');
-    update_frame();
 }
 
 function update_frame() {
@@ -66,17 +53,28 @@ function update_frame() {
 }
 
 $(document).ready(function () {
-    // initial set
+    // initial setup
+    // title font
     $('#title-section').css('font-size', '20px').css('padding', '5px 18px')
     $('#title').css('font-family', 'monospace')
     $('#sub-title').css('font-family', 'monospace')
+    // menu choice
     $('a[data-tab=' + menu_tab[default_menu_id] + ']').addClass('active');
     $('div[data-tab=' + menu_tab[default_menu_id] + ']').addClass('active');
-    // wl_list_gen();
-    $('div[data-value="' + default_wl_id + '"').addClass('selected').addClass('active');
+    
+    // menu-1 workload
+    $('div[data-value="' + default_wl_id + '"]').addClass('selected').addClass('active');
     target_wl_update(default_wl_id);
 
-    $('.menu .item')
+    // menu-2 execution plan
+    $('a[data-tab=' + conf_tab[default_conf_menu_id] + ']').addClass('active');
+    $('div[data-tab=' + conf_tab[default_conf_menu_id] + ']').addClass('active');
+    $('div[data-value=' + reco_conf_list[default_reco_conf_id] + ']').addClass('selected').addClass('active');
+    $('*[data-tag="recommended-conf-id"]').text(reco_conf_list[default_reco_conf_id]);
+
+    update_frame();
+
+    $('.massive.menu .item')
         .tab();
 
     // workload dropdown 
@@ -91,6 +89,27 @@ $(document).ready(function () {
             else {
                 wl_id = text;
                 target_wl_update(wl_id);
+            }
+        }
+    });
+
+    // recommended conf dropdown
+    $('#recommended-conf-dropdown').dropdown({
+        onChange: function(value, text, $choice) {
+        }
+    });
+
+    // conf type tab
+    $('.secondary.menu .item').tab({
+        'onVisible':function(tab_path) {
+            console.log(tab_path)
+            if (tab_path != "recommended") {
+                console.log('not recommended');
+                $('#recommended-conf-dropdown').addClass('disabled');
+            } 
+            else{
+                console.log('change back to recommended');
+                $('#recommended-conf-dropdown').removeClass('disabled');
             }
         }
     });
