@@ -26,3 +26,7 @@ To see the spark ui information, we need to configure to connect master nodes of
     - For Firefox, install the add-on [Ignore X-Frame-Options Header](https://addons.mozilla.org/en-US/firefox/addon/ignore-x-frame-options-header/)
 
     - For Chrome, install the extension [Ingore X-Frame headers](https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe)
+
+- Step 4. Modify the hosts in local machine. Add all the lines in `hosts.ercilla`  to your `/etc/hosts` for Mac OS or Linxu. (You may need the root privilege to add those lines)
+
+- Step 5. try `node13-opa:8088` to see if the proxy setting works.

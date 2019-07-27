@@ -1,0 +1,73 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+129.104.11.1 ercilla
+129.104.11.111 ercilla-idrac
+10.0.0.254 ercilla-opa
+129.104.11.249 switch
+192.168.11.1 node1 ercilla001
+192.168.11.2 node2 ercilla002
+192.168.11.3 node3 ercilla003
+192.168.11.4 node4 ercilla004
+192.168.11.5 node5 ercilla005
+192.168.11.6 node6 ercilla006
+192.168.11.7 node7 ercilla007
+192.168.11.8 node8 ercilla008
+192.168.11.9 node9 ercilla009
+192.168.11.10 node10 ercilla010
+192.168.11.11 node11 ercilla011
+192.168.11.12 node12 ercilla012
+192.168.11.13 node13 ercilla013
+192.168.11.14 node14 ercilla014
+192.168.11.15 node15 ercilla015
+192.168.11.16 node16 ercilla016
+192.168.11.17 node17 ercilla017
+192.168.11.18 node18 ercilla018
+192.168.11.19 node19 ercilla019
+192.168.11.20 node20 ercilla020
+192.168.11.253 edge
+192.168.11.254 frontal
+10.0.0.1 node1-opa ercilla001-opa
+10.0.0.2 node2-opa ercilla002-opa
+10.0.0.3 node3-opa ercilla003-opa
+10.0.0.4 node4-opa ercilla004-opa
+10.0.0.5 node5-opa ercilla005-opa
+10.0.0.6 node6-opa ercilla006-opa
+10.0.0.7 node7-opa ercilla007-opa
+10.0.0.8 node8-opa ercilla008-opa
+10.0.0.9 node9-opa ercilla009-opa
+10.0.0.10 node10-opa ercilla010-opa
+10.0.0.11 node11-opa ercilla011-opa
+10.0.0.12 node12-opa ercilla012-opa
+10.0.0.13 node13-opa ercilla013-opa
+10.0.0.14 node14-opa ercilla014-opa
+10.0.0.15 node15-opa ercilla015-opa
+10.0.0.16 node16-opa ercilla016-opa
+10.0.0.17 node17-opa ercilla017-opa
+10.0.0.18 node18-opa ercilla018-opa
+10.0.0.19 node19-opa ercilla019-opa
+10.0.0.20 node20-opa ercilla020-opa
+10.0.0.253 edge-opa
+192.168.11.201 node1-idrac
+192.168.11.202 node2-idrac
+192.168.11.203 node3-idrac
+192.168.11.204 node4-idrac
+192.168.11.205 node5-idrac
+192.168.11.206 node6-idrac
+192.168.11.207 node7-idrac
+192.168.11.208 node8-idrac
+192.168.11.209 node9-idrac
+192.168.11.210 node10-idrac
+192.168.11.211 node11-idrac
+192.168.11.212 node12-idrac
+192.168.11.213 node13-idrac
+192.168.11.214 node14-idrac
+192.168.11.215 node15-idrac
+192.168.11.216 node16-idrac
+192.168.11.217 node17-idrac
+192.168.11.218 node18-idrac
+192.168.11.219 node19-idrac
+192.168.11.220 node20-idrac
+
+
+169.254.0.1       idrac.local drac.local
