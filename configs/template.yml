@@ -1,0 +1,48 @@
+# we fix the knobs' order for both batch and streaming to 0~11 for batch and 0~9 for streaming
+wl-overview:
+  wl-scenario: batch # batch or streaming
+  wl-type: offline # offline or online
+  wl-id: 2_2 # the id for your workloads
+  wl-description: "a description for the chosen workload"
+  wl-logical_plan: "the logical plan for the workload, e.g., a DAG. or None" # if possible
+wl-confs:
+  recommended-conf-1:
+    ui-link: 'http://10.0.0.7:18088/history/application_1556053183124_3882/SQL/'
+    knobs: [k1, k2, k3, ...] # 12 for batch and 10 for streaming, in a fixed order
+  recommended-conf-2:
+    ui-link: url-recommended-conf-2
+    knobs: [k1, k2, ...]
+  recommended-conf-3:
+    ui-link: url-recommended-conf-3
+    knobs: [k1, k2, ...]
+  default: # we inlucde 17 (#executor, #cores/exec, #exec_mem)
+    2_2_4: url-for-2_2_4
+    3_2_4: url-for-3_2_4
+wl-perfermance-model: # organize the conf file by objectives
+  latency: # choose some interesting plots
+    - chosen_params: 'path/to/plot'
+    - chosen_params: 'path/to/plot'
+  throughput:
+    - chosen_params: 'path/to/plot'
+    - chosen_params: 'path/to/plot'
+  cpuutil:
+    - chosen_params: 'path/to/plot'
+    - chosen_params: 'path/to/plot'
+  cost: # if we have?
+    - chosen_params: 'path/to/plot'
+    - chosen_params: 'path/to/plot'
+wl-moo:
+  - objectives-1: # we may only consider latency + throughput
+      objective-choice: [0,1] # 0,1,2,3 for latency, throughput, cost, and cpuutil
+      udao: 'path/to/plot'
+      ws: 'path/to/plot'
+      nc: 'path/to/plot' # we may not choose it
+wl-n2n:
+  - objectives-1: # we may only consider latency + throughput
+      objective-choice: [0,1] # 0,1,2,3 for latency, throughput, cost, and cpuutil
+      algos-1:
+        choose: [0,1] # 0,1,2 for UDAO, Manual, Ottertune resp.
+        plot_path: 'path/to/plot'
+      algo2-2:
+        choose: [0,2] # 0,1,2 for UDAO, Manual, Ottertune resp.
+        plot_path: 'path/to/plot'
