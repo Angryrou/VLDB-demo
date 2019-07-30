@@ -15,31 +15,34 @@ wl-confs:
   recommended-conf-3:
     ui-link: url-recommended-conf-3
     knobs: [k1, k2, ...]
-  default: # we inlucde 17 (#executor, #cores/exec, #exec_mem)
-    2_2_4: url-for-2_2_4
+  default: # choose only choose `3_2_4` with 2 x cores as k1. So k1 = 2 * 3 * 2 = 12
     3_2_4: url-for-3_2_4
 wl-perfermance-model: # organize the conf file by objectives
   latency: # choose some interesting plots
-    - chosen_params: 'path/to/plot'
-    - chosen_params: 'path/to/plot'
-  throughput:
-    - chosen_params: 'path/to/plot'
-    - chosen_params: 'path/to/plot'
+    - chosen_params: 
+        knob_pair: [k1, k2]
+        plot_path: 'path/to/plot'
+    - chosen_params:
+        knob_pair: [k2, k3]
+        plot_path: 'path/to/plot'
+  # throughput:
+  #   - chosen_params: 'path/to/plot'
+  #   - chosen_params: 'path/to/plot'
   cpuutil:
     - chosen_params: 'path/to/plot'
     - chosen_params: 'path/to/plot'
-  cost: # if we have?
-    - chosen_params: 'path/to/plot'
-    - chosen_params: 'path/to/plot'
+  # cost:
+  #   - chosen_params: 'path/to/plot'
+  #   - chosen_params: 'path/to/plot'
 wl-moo:
   - objectives-1: # we may only consider latency + throughput
-      objective-choice: [0,1] # 0,1,2,3 for latency, throughput, cost, and cpuutil
+      objective-choice: [0,1] # [Fix] 0,1,2,3 for latency, throughput, cost, and cpuutil
       udao: 'path/to/plot'
       ws: 'path/to/plot'
-      nc: 'path/to/plot' # we may not choose it
-wl-n2n:
+      # nc: 'path/to/plot' # we may not choose it
+wl-e2e:
   - objectives-1: # we may only consider latency + throughput
-      objective-choice: [0,1] # 0,1,2,3 for latency, throughput, cost, and cpuutil
+      objective-choice: [0,1] # [Fix] 0,1,2,3 for latency, throughput, cost, and cpuutil
       algos-1:
         choose: [0,1] # 0,1,2 for UDAO, Manual, Ottertune resp.
         plot_path: 'path/to/plot'
