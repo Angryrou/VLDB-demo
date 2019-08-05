@@ -15,7 +15,10 @@ To note, I defined `range = (max - min) / max` in my computation.
  
 ## For ML
 
-Choose `5-6`, the biggest top 5 overlaps.
+Choose `5-6`, the biggest top 5 overlaps. 
+
+`5-6` includes has a `join` operation to generate data and builds a model by using logistic regression.
+
 ```bash
 For 5-6
 latency, range: 0.907, max: 217.608, min: 20.252
@@ -31,6 +34,9 @@ k5_s4: 10
 ## For SQL
 
 Choose `22-7` or `16-3`, two biggest top 4 overlaps. Maybe choose 16-3 with a bigger cpu range.
+
+`22-7` has several aggregation operations and `16-3` has several `join` operations.
+
 ```bash
 For 22-7
 latency, range: 0.921, max: 97.138, min: 7.643

@@ -1,0 +1,63 @@
+# we fix the knobs' order for both batch and streaming to 0~11 for batch and 0~9 for streaming
+wl-overview:
+  wl-scenario: batch # batch or streaming
+  wl-type: offline # offline or online
+  wl-id: 5_6 # the id for your workloads
+  wl-description: "tab1/description.txt"
+  wl-detail: "tab1/pseudocode.txt"
+wl-confs:
+  recommended-conf-1:
+    ui-link: 'http://10.0.0.7:18088/history/application_1556053183124_3882/SQL/'
+    knobs: [k1, k2, k3, ...] # 12 for batch and 10 for streaming, in a fixed order
+    # >> do not have in current UI 
+    notes: "Min latency from Spearmint: (tuning latency objective under fixed input rate=660000)"
+    measures: 'tab2/measures-1.json' 
+    # << do not have in current UI
+  recommended-conf-2:
+    ui-link: url-recommended-conf-2
+    knobs: [k1, k2, ...]
+    notes: "Min latency from Spearmint: (tuning latency objective under fixed input rate=660000)" 
+    measures: 'tab2/measures-2.json' 
+  recommended-conf-3:
+    ui-link: url-recommended-conf-3
+    knobs: [k1, k2, ...]
+    notes: "Min latency from Spearmint: (tuning latency objective under fixed input rate=660000)" 
+    measures: 'tab2/measures-3.json' 
+  default: # choose only choose `3_2_4` with 2 x cores as k1. So k1 = 2 * 3 * 2 = 12
+    3_2_4: url-for-3_2_4
+wl-perfermance-model: # organize the conf file by objectives
+  latency: # choose some interesting plots
+    - chosen_params: 
+        knob_pair: [k1, k2]
+        plot_path: 'tab3/latency_k1_k2.png'
+    - chosen_params:
+        knob_pair: [k2, k3]
+        plot_path: 'tab3/latency_k2_k3.png'
+  # throughput:
+  #   - chosen_params: 'path/to/plot'
+  #   - chosen_params: 'path/to/plot'
+  cpuutil:
+    - chosen_params: 
+        knob_pair: [k1, k2]
+        plot_path: 'tab3/cpuutil_k1_k2.png'
+    - chosen_params:
+        knob_pair: [k2, k3]
+        plot_path: 'tab3/cpuutil_k2_k3.png'
+  # cost:
+  #   - chosen_params: 'path/to/plot'
+  #   - chosen_params: 'path/to/plot'
+wl-moo:
+  - objectives-1: # we may only consider latency + throughput
+      objective-choice: [0,1] # [Fix] 0,1,2,3 for latency, throughput, cost, and cpuutil
+      udao: 'tab4/udao_latency_throughput.png'
+      ws: 'tab4/ws_latency_trhoughput.png'
+      # nc: 'path/to/plot' # we may not choose it
+wl-e2e:
+  - objectives-1: # we may only consider latency + throughput
+      objective-choice: [0,1] # [Fix] 0,1,2,3 for latency, throughput, cost, and cpuutil
+      algos-1:
+        choose: [0,1] # 0,1,2 for UDAO, Manual, Ottertune resp.
+        plot_path: 'tab5/udao_manual.png'
+      algo2-2:
+        choose: [0,2] # 0,1,2 for UDAO, Manual, Ottertune resp.
+        plot_path: 'tab5/udao_ottertune.png'
